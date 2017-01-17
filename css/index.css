@@ -1,0 +1,47 @@
+body {
+  background: #63a93c;
+  color: white; }
+
+@media (max-width: 330px) {
+  header {
+    background: #5d983b; }
+    header h1 {
+      margin: 0px;
+      padding: 20px;
+      font-size: 1.8em; }
+    header a {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 6px;
+      border: 3px solid white;
+      border-radius: 100%;
+      color: white;
+      transition: all .2s ease-in-out; }
+    header a:hover {
+      transform: scale(1.1); }
+
+  .list-container {
+    display: flex;
+    flex-direction: column;
+    user-select: none; }
+    .list-container .list-item {
+      display: flex;
+      height: 60px;
+      align-items: center;
+      padding: 5px;
+      background: #a862d0; }
+    .list-container .list-item:nth-child(even) {
+      background: #be89dc; }
+    .list-container .list-item-name, .list-container .list-item-price {
+      margin-left: 20px;
+      width: 70px; }
+    .list-container .list-item-price::before {
+      content: "Price: "; }
+    .list-container .list-item-in-cart {
+      font-size: 2em;
+      color: yellow;
+      margin-left: auto;
+      padding-right: 20px; } }
+
+/*# sourceMappingURL=index.css.map */

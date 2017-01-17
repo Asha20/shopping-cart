@@ -1,0 +1,67 @@
+@import 'colors';
+
+body {
+  background: $green3;
+  color: white;
+}
+
+@media (max-width: 330px) {
+  header {
+    background: $green1;
+    
+    h1 {
+      margin: 0px;
+      padding: 20px;
+      font-size: 1.8em;
+    }
+
+    a {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 6px;
+      border: 3px solid white;
+      border-radius: 100%;
+      color: white;
+      transition: all .2s ease-in-out;
+    }
+
+    a:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .list-container {
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+
+    .list-item {
+      display: flex;
+      height: 60px;
+      align-items: center;
+      padding: 5px;
+      background: $purple3;
+    }
+
+    .list-item:nth-child(even) {
+      background: $purple4;
+    }
+
+    .list-item-name, .list-item-price {
+      margin-left: 20px;
+      width: 70px;
+    }
+
+    .list-item-price::before {
+      content: "Price: ";
+    }
+
+    .list-item-in-cart {
+      font-size: 2em;
+      color: yellow;
+      margin-left: auto;
+      padding-right: 20px;
+    }
+  }
+}
