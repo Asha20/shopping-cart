@@ -2,7 +2,7 @@ var shoppingCart = (function() {
     var db = [
         {img: "fa-coffee", name: "Coffee", price: 10},
         {img: "fa-glass", name: "Glass", price: 20}
-    ]
+    ];
 
     var cart = {
         content: []
@@ -66,7 +66,7 @@ var shoppingCart = (function() {
 
         for (let i = 0; i < Item.all.length; i++) {
             let holder = makeElement("div", {"class": "list-item"});
-            let imgClasses = "fa fa-3x " + Item.all[i].img;
+            let imgClasses = "list-item-img fa fa-3x " + Item.all[i].img;
             let img = makeElement("i", {"class": imgClasses});
             let name = makeElement("P", {"class": "list-item-name"});
             name.innerHTML = Item.all[i].name;

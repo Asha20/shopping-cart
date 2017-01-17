@@ -5,7 +5,7 @@ body {
   color: white;
 }
 
-@media (max-width: 330px) {
+@media (min-width: 320px) {
   header {
     background: $green1;
     
@@ -46,6 +46,10 @@ body {
 
     .list-item:nth-child(even) {
       background: $purple4;
+    }
+
+    .list-item:active {
+      background: $purple1;
     }
 
     .list-item-name, .list-item-price {

@@ -2,7 +2,7 @@ body {
   background: #63a93c;
   color: white; }
 
-@media (max-width: 330px) {
+@media (min-width: 320px) {
   header {
     background: #5d983b; }
     header h1 {
@@ -33,6 +33,8 @@ body {
       background: #a862d0; }
     .list-container .list-item:nth-child(even) {
       background: #be89dc; }
+    .list-container .list-item:active {
+      background: #873db2; }
     .list-container .list-item-name, .list-container .list-item-price {
       margin-left: 20px;
       width: 70px; }
