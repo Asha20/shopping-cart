@@ -1,11 +1,34 @@
-var shoppingCart = (function() {
+var shoppingCart = (function(global) {
     var db = [
         {img: "fa-coffee", name: "Coffee", price: 10},
         {img: "fa-glass", name: "Glass", price: 20}
     ];
 
     var cart = {
-        content: []
+        content: [],
+
+        add: function(item) {
+            let cartItem = this.search(item);
+            if (cartItem) {
+                cartItem.inCart += 1;
+            }
+            else {
+                item.inCart += 1;
+                this.content.push(item);
+            }
+            
+            Item.render();
+            sessionStorage.setItem("cart", this);
+
+        },
+
+        search: function(item) {
+            for (let i = 0; i < this.content.length; i++) {
+                if (this.content[i] === item) {
+                    return item;
+                }
+            }
+        }
     };
 
     function makeElement(element, config) {
@@ -22,24 +45,11 @@ var shoppingCart = (function() {
         let container = document.querySelector(".list-container");
         if (/list-item/.test(event.target.className)) {
             if (event.target.parentNode === container) {
-                addToCart(Item.findByElement(event.target));
+                cart.add(Item.findByElement(event.target));
             } else {
-                addToCart(Item.findByElement(event.target.parentNode));
+                cart.add(Item.findByElement(event.target.parentNode));
             }
         }
-    }
-
-    function addToCart(item) {
-        for (let i = 0; i < cart.content.length; i++) {
-            if (cart.content[i] === item) {
-                cart.content[i].inCart += 1;
-                Item.render();
-                return;
-            }
-        }
-        item.inCart += 1;
-        cart.content.push(item);
-        Item.render();
     }
 
     function Item(config) {
@@ -97,8 +107,10 @@ var shoppingCart = (function() {
         init: function() {
             Item.load(db);
             Item.render();
+            localStorage.setItem("app", this);
+            console.log(this);
         }
     }
-})();
+})(window);
 
 shoppingCart.init();

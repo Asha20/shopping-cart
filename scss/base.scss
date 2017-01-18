@@ -8,6 +8,7 @@ body {
 @media (min-width: 320px) {
   header {
     background: $green1;
+    height: 110px;
     
     h1 {
       margin: 0px;
@@ -46,6 +47,10 @@ body {
 
     .list-item:nth-child(even) {
       background: $purple4;
+    }
+
+    .list-item:hover {
+      cursor: pointer;
     }
 
     .list-item:active {

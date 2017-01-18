@@ -4,7 +4,8 @@ body {
 
 @media (min-width: 320px) {
   header {
-    background: #5d983b; }
+    background: #5d983b;
+    height: 110px; }
     header h1 {
       margin: 0px;
       padding: 20px;
@@ -33,6 +34,8 @@ body {
       background: #a862d0; }
     .list-container .list-item:nth-child(even) {
       background: #be89dc; }
+    .list-container .list-item:hover {
+      cursor: pointer; }
     .list-container .list-item:active {
       background: #873db2; }
     .list-container .list-item-name, .list-container .list-item-price {
@@ -46,4 +49,4 @@ body {
       margin-left: auto;
       padding-right: 20px; } }
 
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=base.css.map */
