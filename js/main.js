@@ -1,45 +1,49 @@
-var shoppingCart = (function(global) {
-    var db = [
+function makeElement(element, config) {
+    let node = document.createElement(element);
+    for (let attr in config) {
+        node.setAttribute(attr, config[attr]);
+    }
+    return node;
+}
+
+let shoppingCart = (function(global) {
+    let db = [
         {img: "fa-coffee", name: "Coffee", price: 10},
         {img: "fa-glass", name: "Glass", price: 20}
     ];
 
-    var cart = {
-        content: [],
+    let cart = (function() {
+        let content = [];
 
-        add: function(item) {
-            let cartItem = this.search(item);
-            if (cartItem) {
-                cartItem.inCart += 1;
-            }
-            else {
-                item.inCart += 1;
-                this.content.push(item);
-            }
-            
-            Item.render();
-            sessionStorage.setItem("cart", this);
+        return {
+            getContent: function() {
+                return content;
+            },
 
-        },
+            add: function(item) {
+                let cartItem = this.search(item);
+                if (cartItem) {
+                    cartItem.inCart += 1;
+                }
+                else {
+                    item.inCart += 1;
+                    content.push(item);
+                }
+                
+                Item.render();
+            },
 
-        search: function(item) {
-            for (let i = 0; i < this.content.length; i++) {
-                if (this.content[i] === item) {
-                    return item;
+            search: function(item) {
+                for (let i = 0; i < content.length; i++) {
+                    if (content[i] === item) {
+                        return item;
+                    }
                 }
             }
-        }
-    };
+        };
+    })();
 
-    function makeElement(element, config) {
-        let node = document.createElement(element);
-        for (let attr in config) {
-            node.setAttribute(attr, config[attr]);
-        }
-        return node;
-    }
-
-    document.addEventListener("click", handleItemClick, true);
+    document.addEventListener("click", handleItemClick, false);
 
     function handleItemClick(event) {
         let container = document.querySelector(".list-container");
@@ -51,6 +55,25 @@ var shoppingCart = (function(global) {
             }
         }
     }
+
+    document.querySelector(".btn-cart").addEventListener("click", function(event) {
+        let shopPage = document.querySelector(".page-shop");
+        let cartPage = document.querySelector(".page-shopping-cart");
+        let baseClasses = "btn-cart fa fa-2x ";
+
+        if (this.dataset.on === "false") {
+            this.dataset.on = "true";
+            this.setAttribute("class", baseClasses + "fa-arrow-left");
+            shopPage.style.display = "none";
+            cartPage.style.display = "block";
+        }
+        else {
+            this.dataset.on = "false";
+            this.setAttribute("class", baseClasses + "fa-shopping-cart");
+            shopPage.style.display = "block";
+            cartPage.style.display = "none";
+        }
+    })
 
     function Item(config) {
         this.img = config.img;
@@ -64,7 +87,6 @@ var shoppingCart = (function(global) {
         Item.all = [];
         for (let i = 0; i < db.length; i++) {
             Item.all.push(new Item(db[i]));
-            Item.all[i].inCart = 0;
         }
     }
 
@@ -107,8 +129,6 @@ var shoppingCart = (function(global) {
         init: function() {
             Item.load(db);
             Item.render();
-            localStorage.setItem("app", this);
-            console.log(this);
         }
     }
 })(window);
