@@ -8,12 +8,21 @@ function makeElement(element, config) {
 
 let shoppingCart = (function(global) {
     let db = [
-        {img: "fa-coffee", name: "Coffee", price: 10},
-        {img: "fa-coffee", name: "Coffee", price: 10},
-        {img: "fa-coffee", name: "Coffee", price: 10},
-        {img: "fa-coffee", name: "Coffee", price: 10},
-        {img: "fa-coffee", name: "Coffee", price: 10},
-        {img: "fa-glass", name: "Glass", price: 20}
+        {img: "fa-address-card", name: "Address Card", price: 10},
+        {img: "fa-anchor", name: "Anchor", price: 20},
+        {img: "fa-bath", name: "Bath", price: 30},
+        {img: "fa-birthday-cake", name: "Birthday Cake", price: 40},
+        {img: "fa-bed", name: "Bed", price: 50},
+        {img: "fa-bomb", name: "Bomb", price: 60},
+        {img: "fa-calculator", name: "Calculator", price: 70},
+        {img: "fa-calendar", name: "Calendar", price: 80},
+        {img: "fa-cloud", name: "Cloud", price: 90},
+        {img: "fa-cube", name: "Cube", price: 100},
+        {img: "fa-eraser", name: "Eraser", price: 110},
+        {img: "fa-fighter-jet", name: "Fighter Jet", price: 120},
+        {img: "fa-flag", name: "Flag", price: 130},
+        {img: "fa-gift", name: "Gift", price: 140},
+        {img: "fa-pencil", name: "Pencil", price: 150},
     ];
 
     let cart = (function() {
