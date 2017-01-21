@@ -9,6 +9,10 @@ function makeElement(element, config) {
 let shoppingCart = (function(global) {
     let db = [
         {img: "fa-coffee", name: "Coffee", price: 10},
+        {img: "fa-coffee", name: "Coffee", price: 10},
+        {img: "fa-coffee", name: "Coffee", price: 10},
+        {img: "fa-coffee", name: "Coffee", price: 10},
+        {img: "fa-coffee", name: "Coffee", price: 10},
         {img: "fa-glass", name: "Glass", price: 20}
     ];
 

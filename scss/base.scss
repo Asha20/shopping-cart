@@ -5,144 +5,174 @@ body {
   color: white;
 }
 
-@media (min-width: 320px) {
-  .btn-cart {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    padding: 6px;
-    border: 3px solid white;
-    border-radius: 100%;
-    color: white;
-    transition: all .2s ease-in-out;
-    z-index: 1;
-  }
+.btn-cart {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 6px;
+  border: 3px solid white;
+  border-radius: 100%;
+  color: white;
+  transition: all .2s ease-in-out;
+  z-index: 1;
+}
 
-  .btn-cart:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
+.btn-cart:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
 
-  header {
-    background: $green1;
-    height: 110px;
-    
-    h1 {
-      margin: 0px;
-      padding: 20px;
-      font-size: 1.8em;
-    }
+header {
+  background: $green1;
+  height: 110px;
+  
+  h1 {
+    margin: 0px;
+    padding: 20px;
+    font-size: 1.8em;
   }
+}
 
+.title {
+  padding-right: 50px;
+}
+
+.list-item {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  padding: 5px;
+  background: $purple3;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
   .list-item {
-    display: flex;
-    height: 60px;
-    align-items: center;
-    padding: 5px;
-    background: $purple3;
+    width: 50%;
+  }
+}
+
+@media (min-width: 960px) {
+  .list-item {
+    width: 33.33334%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .list-item {
+    width: 25%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .list-item {
+    width: 20%;
+  }
+}
+
+.list-item:nth-child(even) {
+  background: $purple4;
+}
+
+.list-item:hover {
+  cursor: pointer;
+}
+
+.list-item:active {
+  background: $purple1;
+}
+
+.list-item-name, .list-item-price {
+  margin-left: 20px;
+  width: 70px;
+}
+
+.list-item-in-cart {
+  font-size: 2em;
+  color: yellow;
+  margin-left: auto;
+  padding-right: 20px;
+}
+
+.shop-container, .cart-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  user-select: none;
+  width: 100%;
+}
+
+.cart-container {
+  .list-item {
+    background: $green1;
   }
 
   .list-item:nth-child(even) {
-    background: $purple4;
+    background: $green3;
   }
 
   .list-item:hover {
+    cursor: inherit;
+  }
+}
+
+.page-shopping-cart {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  background: $purple4;
+  display: none;
+  width: 100%;
+  height: 100%;
+
+  header {
+    background: $purple3;
+  }
+
+  .move-bottom {
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    background: $purple3;
+  }
+
+  .total-price {
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    
+    height: 40px;
+    background: transparent;
+    border: 3px solid white;
+    border-radius: 5px;
+    color: white;
+  }
+
+  .btn:hover {
     cursor: pointer;
   }
 
-  .list-item:active {
-    background: $purple1;
+  .btn-buy {
+    border-color: cyan;
+    color: cyan;
   }
 
-  .list-item-name, .list-item-price {
-    margin-left: 20px;
-    width: 70px;
-  }
-
-  .list-item-in-cart {
-    font-size: 2em;
-    color: yellow;
-    margin-left: auto;
-    padding-right: 20px;
-  }
-
-  .shop-container, .cart-container {
-    display: flex;
-    flex-direction: column;
-    user-select: none;
-  }
-
-  .cart-container {
-    .list-item {
-      background: $green1;
-    }
-
-    .list-item:nth-child(even) {
-      background: $green3;
-    }
-
-    .list-item:hover {
-      cursor: inherit;
-    }
-  }
-
-  .page-shopping-cart {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-  
-    background: $purple4;
-    display: none;
-    width: 100%;
-    height: 100%;
-
-    header {
-      background: $purple3;
-    }
-
-    .move-bottom {
-      width: 100%;
-      position: fixed;
-      bottom: 0px;
-    }
-
-    .options {
-      display: flex;
-      flex-direction: column;
-      background: $purple3;
-    }
-
-    .total-price {
-      font-size: 1.5em;
-      text-align: center;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-
-    .btn {
-      width: 80%;
-      margin: auto;
-      margin-bottom: 10px;
-      
-      height: 40px;
-      background: transparent;
-      border: 3px solid white;
-      border-radius: 5px;
-      color: white;
-    }
-
-    .btn:hover {
-      cursor: pointer;
-    }
-
-    .btn-buy {
-      border-color: cyan;
-      color: cyan;
-    }
-
-    .btn-empty {
-      border-color: orange;
-      color: orange;
-    }
+  .btn-empty {
+    border-color: orange;
+    color: orange;
   }
 }
