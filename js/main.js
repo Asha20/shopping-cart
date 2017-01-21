@@ -22,7 +22,7 @@ let shoppingCart = (function(global) {
         {img: "fa-fighter-jet", name: "Fighter Jet", price: 120},
         {img: "fa-flag", name: "Flag", price: 130},
         {img: "fa-gift", name: "Gift", price: 140},
-        {img: "fa-pencil", name: "Pencil", price: 150},
+        {img: "fa-pencil", name: "Pencil", price: 150}
     ];
 
     let cart = (function() {
@@ -93,12 +93,13 @@ let shoppingCart = (function(global) {
                 let buttonEmpty = makeElement("BUTTON", {"class": "btn btn-empty"});
                 buttonEmpty.innerHTML = "Empty Cart";
 
-                let totalPrice;
+                let totalPrice = 0;
                 if (content.length === 1) {
                     totalPrice = content[0].price * content[0].inCart;
                 } else {
-                    totalPrice =
-                        content.reduce((a, b) => a.price * a.inCart + b.price * b.inCart);
+                    for (var i = 0; i < content.length; i++) {
+                        totalPrice += content[i].price * content[i].inCart;
+                    }
                 }
                 totalPriceSpan.innerHTML = "Total Price: " + totalPrice;
                 options.appendChild(totalPriceSpan);
