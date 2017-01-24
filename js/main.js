@@ -85,7 +85,6 @@ let shoppingCart = (function(global) {
                     content.element = holder;
                 }
 
-                let moveBottom = makeElement("div", {"class": "move-bottom"});
                 let options = makeElement("div", {"class": "options"});
                 let totalPriceSpan = makeElement("span", {"class": "total-price"});
                 let buttonBuy = makeElement("BUTTON", {"class": "btn btn-buy"});
@@ -105,8 +104,7 @@ let shoppingCart = (function(global) {
                 options.appendChild(totalPriceSpan);
                 options.appendChild(buttonBuy);
                 options.appendChild(buttonEmpty);
-                moveBottom.appendChild(options);
-                container.appendChild(moveBottom);
+                container.appendChild(options);
 
                 document.querySelector(".btn-buy").addEventListener("click", function(event) {
                     cart.empty();
